@@ -1,0 +1,30 @@
+
+{% extends "maestra.html" %}
+{% block titulo %}
+Editar juego
+{% endblock %}
+{% block contenido %}
+<section class="section">
+    <div class="columns">
+        <div class="col-form-label mt-4">
+            <h3 class="is-size-3" style="margin: auto; width: 250px">Editar juego</h3>
+            <form action="{{url_for('actualizar_juego')}}" method="post" style="margin: auto; width: 420px">
+                {# Enviar el id en un campo oculto #}
+                <br /><br />
+                <input type="hidden" name="id" value="{{juego[0]}}">
+                <label for="nombre">Nombre:</label>
+                <input value="{{juego[1]}}" required type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre">
+                <br />
+                <label for="descripcion">Descripción</label>
+                <input value="{{juego[2]}}" required type="text" class="form-control" placeholder="Descripción" name="descripcion" id="descripcion">
+                <br />
+                <label for="precio">Precio</label>
+                <input value="{{juego[3]}}" required type="number" class="form-control" placeholder="Precio" name="precio" id="precio">
+                <br /><br />
+                <button type="submit" style="height:50px; width:150px;" class="btn btn-outline-success">Guardar</button>
+                <a href="{{url_for('juegos')}}" class="btn btn-outline-primary" style="height: 50px; width: 150px; margin-left: 27%;">Volver</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

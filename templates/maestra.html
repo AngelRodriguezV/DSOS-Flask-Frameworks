@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Poner un block para que luego pueda ser remplazado en las siguientes plantillas; lo mismo con el  block contenido-->
+    <title>CRUD FLASK - {% block titulo %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Reveley</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('juegos')}}">Juegos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('formulario_agregar_juego')}}">Agregar</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="{{url_for('buscar_juego')}}" method="get">
+                    <input name="nombrejuego" class="form-control me-sm-2" type="text" placeholder="Nombre del juego">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button> 
+                </form>
+            </div>
+        </div>
+    </nav>
+    {%block contenido %} {% endblock %}
+</body>
+
+</html>
